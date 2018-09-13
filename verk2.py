@@ -44,6 +44,10 @@ def b():
         <a href ="/sida2?bokstafur=b<img src = 'img/B'.jpg></a>
         <a href ="/sida2?bokstafur=c<img src = 'img/C'.jpg></a>
         <a href ="/sida2?bokstafur=d<img src = 'img/D'.jpg></a>
+	<img src="/img/A.jpg">
+	<img src="/img/B.jpg">
+	<img src="/img/C.jpg">
+	<img src="/img/D.jpg">
         """
 
 
