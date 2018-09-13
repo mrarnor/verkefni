@@ -1,13 +1,17 @@
-#from sys import argv
+from sys import argv
 
+
+import bottle
 from bottle import *
+bottle.debug(True)
 
 @route("/")
 def index():
     return """
     <h2>Verkefni 2</h2>
-    <a href="/a">detta er Lidur A</a>
-    <a href="/b">detta er Lidur B</a>
+    <a href="/a"> A</a>
+
+    <a href="/b"> B</a>
     """
 
 @route("/a")
@@ -36,7 +40,7 @@ def b():
     return """ 
         <h2>Verkefni 2 Lidur B</h2>
         <h4>Veldu uppahalds bokstafinn dinn</h4>
-        <a href ="/sida2?bokstafur=a<img src = 'img/A'.jpg></a>
+        <a href ="/sida2?bokstafur=a<img src = '/img/A'.jpg></a>
         <a href ="/sida2?bokstafur=b<img src = 'img/B'.jpg></a>
         <a href ="/sida2?bokstafur=c<img src = 'img/C'.jpg></a>
         <a href ="/sida2?bokstafur=d<img src = 'img/D'.jpg></a>
@@ -47,7 +51,7 @@ def b():
 def page():
     l = request.query.bokstafur
     if l == 'a':
-        return"<h3>Minn uppahalds bokstafur er:</h3><img src = 'img/A'.jpg>"
+        return"<h3>Minn uppahalds bokstafur er:</h3><img src = '/img/A'.jpg>"
     if l == 'b':
         return"<h3>Minn uppahalds bokstafur er:</h3><img src = 'img/B'.jpg>"
     if l == 'c':
@@ -74,4 +78,4 @@ def villa(error):
 
 
 
-run(host = 'localhost',port= 8080, reloader=True, debug=True)
+bottle.run(host='0.0.0.0', port=argv[1])
